@@ -1,5 +1,5 @@
 # Linear Aspect ----------------------------
-LinearAspect <- function(aspect = aspect, size = size, filename = filename, writeRaster = writeRaster)
+linearAspect <- function(aspect = aspect, size = size, filename = filename, writeRaster = writeRaster)
 {
   if(quiet == FALSE) process.time.start.LinearAspect <- proc.time()
 

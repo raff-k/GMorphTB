@@ -1,5 +1,5 @@
 # Site Exposure Index ---------------------------
-SEI <- function(slope = NULL, aspect = NULL, size = 3, filename = "SEI.tif", writeRaster = FALSE)
+siteExposure <- function(slope = NULL, aspect = NULL, size = 3, filename = "SEI.tif", writeRaster = FALSE)
 {
 
   if(quiet == FALSE) process.time.start.SEI <- proc.time()

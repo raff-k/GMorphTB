@@ -1,4 +1,4 @@
-Landform <- function(elevation = elevation, size = params.Landform$size, filename = params.Landform$filename, writeRaster = params.Landform$writeRaster)
+landform <- function(elevation = elevation, size = params.Landform$size, filename = params.Landform$filename, writeRaster = params.Landform$writeRaster)
 {
   if(quiet == FALSE) process.time.start.Landform <- proc.time()
 
