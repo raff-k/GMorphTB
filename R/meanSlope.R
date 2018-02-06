@@ -1,4 +1,4 @@
-#' @title Mean Slope
+#' @title Mean Slope (Directionality)
 #'
 #' @description Mean of slope within a defined window.
 #'

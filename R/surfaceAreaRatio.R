@@ -1,4 +1,4 @@
-#' @title Surface Area Ratio
+#' @title Surface Area Ratio (Surface Texture)
 #'
 #' @description [surfaceAreaRatio()] calculates scalable slope position by subtracting a focalmean raster
 #' from the original elevation raster.

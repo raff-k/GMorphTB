@@ -1,4 +1,4 @@
-#' @title Linear Aspect
+#' @title Linear Aspect (Directionality)
 #'
 #' @description Transforms the circular aspect to a linear variable.
 #'

@@ -1,4 +1,4 @@
-#' @title Roughness
+#' @title Roughness (Surface Texture)
 #'
 #' @description [roughness()] represents the variance in a continuous raster within a specified window and scale.
 #'

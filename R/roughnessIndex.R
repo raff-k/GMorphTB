@@ -1,4 +1,4 @@
-#' @title Roughness Index
+#' @title Roughness Index (Surface Texture)
 #'
 #' @description [roughnessIndex()] as standard deviation of residual topography (Cavalli et al. 2008).
 #'

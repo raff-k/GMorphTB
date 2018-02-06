@@ -1,4 +1,4 @@
-#' @title Slope Position
+#' @title Slope Position (Surface Texture)
 #'
 #' @description [slopePosition()] calculates scalable slope position by subtracting a focalmean raster
 #' from the original elevation raster.

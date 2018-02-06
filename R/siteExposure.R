@@ -1,4 +1,4 @@
-#' @title Site Exposure Index
+#' @title Site Exposure Index (Temperature and Moisture)
 #'
 #' @description Calculates a site exposure index (Balice et al. 2000)
 #'
@@ -59,7 +59,7 @@ siteExposure <- function(elevation = NULL, slope = NULL, aspect = NULL, zscale =
   if(quiet == FALSE) cat("... calculate Site Exposure Index\n")
   outRaster <- raster::overlay(slope, tmp.cosResult, fun = function(x, y) {return(x * y)})
 
-  names(outRaster) <- "SEI"
+  names(outRaster) <- "siteExposure"
 
 
   if(!is.null(output))

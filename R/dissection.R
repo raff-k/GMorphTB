@@ -1,4 +1,4 @@
-#' @title Dissection
+#' @title Dissection (Surface Texture)
 #'
 #' @description [dissection()] describes dissection in a continuous raster surface
 #' within rectangular or circular window. Martonne’s modified dissection is calculated

@@ -1,4 +1,4 @@
-#' @title Landform
+#' @title Landform (Surface Texture)
 #'
 #' @description Concavity/convexity landform index (Bolstad’s variant).
 #'
