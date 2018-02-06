@@ -22,7 +22,7 @@
 #' @export
 #'
 
-linearAspect <- function(elevation = NULL, aspect = NULL, zscale = "1.0", output = NULL, load_output = TRUE, quiet = TRUE, ...)
+classifyAspect <- function(elevation = NULL, aspect = NULL, zscale = "1.0", output = NULL, load_output = TRUE, quiet = TRUE, ...)
 {
 
   if(quiet == FALSE)

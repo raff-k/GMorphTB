@@ -75,16 +75,16 @@ saTransformation <- function(elevation = NULL, slope = NULL, aspect = NULL, zsca
     {
       outRaster <- raster::overlay(x = nullSet, y = tmp4, fun = function(x, y){return(cos(x/57.296)*y)})
     } else{ # sin selected
-      raster::overlay(x = nullSet, y = tmp4, fun = function(x, y){return(sin(x/57.296)*y)})
+      outRaster <- raster::overlay(x = nullSet, y = tmp4, fun = function(x, y){return(sin(x/57.296)*y)})
       }
   }
 
   if(transType == "TRASP")
   {
-    tmp2 <- raster::calc(x = aspect, fun = function(x){return(1 - cos((3.142/18)*(x - 30)))})
+    tmp2 <- raster::calc(x = aspect, fun = function(x){return((1 - cos((3.142/180)*(x - 30))))})
     tmp3 <- raster::calc(x = tmp2, fun = function(x){return(x/2)})
 
-    outRaster = raster::overlay(x = tmp3, y = aspect, fun = function(x, y){return(ifelse(y < 0, 0.5, x))})
+    outRaster <- raster::overlay(x = tmp3, y = aspect, fun = function(x, y){return(ifelse(y < 0, 0.5, x))})
   }
 
     names(outRaster) <- "saTransformation"
