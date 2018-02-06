@@ -23,7 +23,7 @@
 #' @export
 #'
 
-linearAspect <- function(elevation = NULL, aspect = NULL, size = 3, output = NULL, load_output = TRUE, quiet = TRUE, ...)
+linearAspect <- function(elevation = NULL, aspect = NULL, size = 3, zscale = "1.0", output = NULL, load_output = TRUE, quiet = TRUE, ...)
 {
 
   if(quiet == FALSE)

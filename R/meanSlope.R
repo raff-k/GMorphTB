@@ -41,10 +41,10 @@ meanSlope <- function(elevation = NULL, slope = NULL, size = 3, zscale = "1.0", 
 
   # mean slope
   outRaster <- RQGIS::run_qgis(alg = "grass7:r.neighbors", load_output = TRUE, show_output_paths = FALSE,
-                               input = slope, method = "0", size = size, output = file.path(tempdir(), "tmp_m_slp.tif"), ...)
+                               input = slope, method = "average", size = size, output = file.path(tempdir(), "tmp_m_slp.tif"), ...)
 
   # remove value smaller 0
-  outRaster <- raster::calc(outRaster, fun = function(x){ifelse(x < 0, 0, x)})
+  # outRaster <- raster::calc(outRaster, fun = function(x){ifelse(x < 0, 0, x)})
 
   names(outRaster) <- "meanSlope"
 

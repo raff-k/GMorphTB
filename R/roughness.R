@@ -31,7 +31,7 @@ roughness <- function(elevation = NULL, size = 3, output = NULL, load_output = T
 
   # standard deviation
   tmp1  <- RQGIS::run_qgis(alg = "grass7:r.neighbors", load_output = TRUE, show_output_paths = FALSE,
-                                input = tmp.dif, method = "stddev", size = size, output = file.path(tempdir(), "tmp_roughness.tif"), ...)
+                                input = elevation, method = "stddev", size = size, output = file.path(tempdir(), "tmp_roughness.tif"), ...)
 
 
   # square
