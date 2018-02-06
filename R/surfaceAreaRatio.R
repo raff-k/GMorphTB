@@ -1,6 +1,7 @@
-#' @title Mean Slope
+#' @title Surface Area Ratio
 #'
-#' @description Mean of slope within a defined window.
+#' @description [surfaceAreaRatio()] calculates scalable slope position by subtracting a focalmean raster
+#' from the original elevation raster.
 #'
 #'
 #' @param elevation \linkS4class{RasterLayer} containing elevation values
@@ -13,24 +14,23 @@
 #' @param ... optional parameter for [RQGIS::run_qgis()]
 #'
 #' @return
-#' \linkS4class{RasterLayer} mean slope
+#' \linkS4class{RasterLayer} surfaceAreaRatio
 #'
 #'
 #'
-#' @keywords mean slope
+#' @keywords surface area ratio
 #'
 #'
 #' @export
 
-meanSlope <- function(elevation = NULL, slope = NULL, size = 3, zscale = "1.0", output = NULL, load_output = TRUE, quiet = TRUE, ...)
+surfaceAreaRatio <- function(elevation = NULL, slope = NULL, size = 3, zscale = "1.0", output = NULL, load_output = TRUE, quiet = TRUE, ...)
 {
 
   if(quiet == FALSE)
   {
     process.time.start <- proc.time()
-    cat("Running Mean Slope ...\n")
+    cat("Running Surface Area Ratio ...\n")
   }
-
 
   # get slope
   if(is.null(slope))
@@ -39,22 +39,23 @@ meanSlope <- function(elevation = NULL, slope = NULL, size = 3, zscale = "1.0", 
                             elevation = elevation, zscale = zscale, slope = file.path(tempdir(), "tmp_slp.tif"), ...)
   }
 
-  # mean slope
-  outRaster <- RQGIS::run_qgis(alg = "grass7:r.neighbors", load_output = TRUE, show_output_paths = FALSE,
-                               input = slope, method = "0", size = size, output = file.path(tempdir(), "tmp_m_slp.tif"), ...)
+  c <- prod(raster::res(slope))
+  v <- pi/180
 
-  # remove value smaller 0
-  outRaster <- raster::calc(outRaster, fun = function(x){ifelse(x < 0, 0, x)})
+  tmp1 <- raster::calc(x = slope, fun = function(x){return(x*v)})
 
-  names(outRaster) <- "meanSlope"
+  outRaster <- raster::calc(x = tmp1, fun = function(x){return(c/cos(x))})
+
+  names(outRaster) <- "surfaceAreaRatio"
 
   if(!is.null(output))
   {
+    # write data
     if(quiet == FALSE) cat("... write raster\n")
     raster::writeRaster(x = outRaster, filename = output, overwrite = TRUE)
   }
 
-  if(quiet == FALSE) cat(paste0("------ Run of Mean Slope: " , (proc.time() - process.time.start)["elapsed"][[1]]/60, " Minutes ------\n"))
+  if(quiet == FALSE) cat(paste0("------ Run of Surface Area Ratio: " , (proc.time() - process.time.start)["elapsed"][[1]]/60, " Minutes ------\n"))
 
 
   if(load_output)
@@ -62,4 +63,4 @@ meanSlope <- function(elevation = NULL, slope = NULL, size = 3, zscale = "1.0", 
     return(outRaster)
   }
 
-} # end function meanSlope
+} # end of function surfaceAreaRatio

@@ -1,6 +1,6 @@
 #' @title Roughness
 #'
-#' @description Roughness represents the variance in a continuous raster within a specified window and scale.
+#' @description [roughness()] represents the variance in a continuous raster within a specified window and scale.
 #'
 #'
 #' @param elevation \linkS4class{RasterLayer} containing elevation values
@@ -54,4 +54,4 @@ roughness <- function(elevation = NULL, size = 3, output = NULL, load_output = T
     return(outRaster)
   }
 
-}
+} # end of function roughness

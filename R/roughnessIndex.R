@@ -1,6 +1,6 @@
 #' @title Roughness Index
 #'
-#' @description Roughness index as standard deviation of residual topography (Cavalli et al. 2008).
+#' @description [roughnessIndex()] as standard deviation of residual topography (Cavalli et al. 2008).
 #'
 #'
 #' @param elevation \linkS4class{RasterLayer} containing elevation values
