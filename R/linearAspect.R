@@ -57,8 +57,6 @@ linearAspect <- function(elevation = NULL, aspect = NULL, size = 3, zscale = "1.
   tmp.sin <- RQGIS::run_qgis(alg = "grass7:r.neighbors", input = tmp.sin, method = "6", size = size, output = file.path(tempdir(), "tmpSin.tif"), load_output = TRUE, show_output_paths = FALSE)
   tmp.cos <- RQGIS::run_qgis(alg = "grass7:r.neighbors", input = tmp.cos, method = "6", size = size, output = file.path(tempdir(), "tmpCos.tif"), load_output = TRUE, show_output_paths = FALSE)
 
-  tmp.sin <- raster::focal(tmp.sin, w = matrix(1, size, size), fun = sum, na.rm = TRUE, NAonly=TRUE, pad=TRUE)
-  tmp.cos <- raster::focal(tmp.cos, w = matrix(1, size, size), fun = sum, na.rm = TRUE, NAonly=TRUE, pad=TRUE)
 
   # start final calculations
   tmp.Mod <- raster::overlay(tmp.sin, tmp.cos, fun = function(x, y){return((((450-(atan2(x, y) * 57.296)) * 100) %% 36000)/100)})
