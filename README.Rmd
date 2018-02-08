@@ -7,24 +7,25 @@ output: github_document
 GeoMorphTB is an open-source approach for Evan's ArcGIS Geomorphometry & Gradient Metrics Toolbox ([here](http://evansmurphy.wixsite.com/evansspatial/arcgis-gradient-metrics-toolbox)). As open-source software solution GRASS GIS 7.x is used through [RQGIS](https://github.com/jannes-m/RQGIS) functionalities.
 
 Currently, the following functions and algorithms are supported:
-* Directionality
-  + Classify Aspect
-  + Linear Aspect
-  + Mean Slope
-* Statistics
+
+* **Directionality**
+    + Classify Aspect
+    + Linear Aspect
+    + Mean Slope
+* **Statistics**
     + Correlation
-* Surface Texture
-  + Dissection
-  + Landform
-  + Roughness
-  + Roughness Index (Add-on, Cavalli et al. 2008)
-  + Slope Position
-  + Surface Area Ratio
-  + Surface Relief Ratio
-* Temperature and Moisture
-  + 2nd Derivative Slope
-  + Site Exposure Index
-  + Slope/Aspect Transformation
+* **Surface Texture**
+    + Dissection
+    + Landform
+    + Roughness
+    + Roughness Index (Add-on, Cavalli et al. 2008)
+    + Slope Position
+    + Surface Area Ratio
+    + Surface Relief Ratio
+* **Temperature and Moisture**
+    + 2nd Derivative Slope
+    + Site Exposure Index
+    + Slope/Aspect Transformation
 
 
 # Installation 
