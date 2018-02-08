@@ -1,5 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+GeoMorphTB
+==========
+
 GeoMorphTB is an open-source approach for Evan's ArcGIS Geomorphometry & Gradient Metrics Toolbox ([here](http://evansmurphy.wixsite.com/evansspatial/arcgis-gradient-metrics-toolbox)). As open-source software solution GRASS GIS 7.x is used through [RQGIS](https://github.com/jannes-m/RQGIS) functionalities.
 
 Currently, the following functions and algorithms are supported:
@@ -93,6 +96,6 @@ raster::plot(dis)
 The result of the function is automatically loaded into R. However, if you do not want the file loaded in R, but stored on the hard disk, you can specify the function call as in the following example:
 
 ``` r
-# as default, the file is saved to current working directory
+# as default, the file is saved to the current working directory
 GeoMorphTB::roughness(elevation = dem, load_output = FALSE, output = file.path(tempdir(), "roughness.tif"))
 ```
