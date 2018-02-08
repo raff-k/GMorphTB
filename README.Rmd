@@ -1,0 +1,93 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  fig.align = "center",
+  collapse = TRUE,
+  eval = FALSE,
+  comment = "#>",
+  cache = TRUE
+)
+```
+
+```{r, echo = FALSE, eval = TRUE}
+rvers = "3.2.0"
+```
+
+
+GeoMorphTB is an open-source approach for Evan's ArcGIS Geomorphometry & Gradient Metrics Toolbox (see also [http://evansmurphy.wixsite.com/evansspatial/arcgis-gradient-metrics-toolbox]). As open-source software solution GRASS GIS 7.x is used through RQGIS [https://github.com/jannes-m/RQGIS] functionalities.
+
+Currently, the following functions and algorithms are supported:
+* Directionality
+  + Classify Aspect
+  + Linear Aspect
+  + Mean Slope
+* Statistics
+    + Correlation
+* Surface Texture
+  + Dissection
+  + Landform
+  + Roughness
+  + Roughness Index (Add-on, Cavalli et al. 2008)
+  + Slope Position
+  + Surface Area Ratio
+  + Surface Relief Ratio
+* Temperature and Moisture
+  + 2nd Derivative Slope
+  + Site Exposure Index
+  + Slope/Aspect Transformation
+
+
+# Installation 
+
+## Package installation
+In order to use GeoMorphTB, RQGIS needs to be installed properly (see `vignette("install_guide", package = "RQGIS")`).
+
+You can install:
+
+- the latest GeoMorphTB development version from Github with:
+
+```{r, eval = FALSE}
+devtools::install_github("raff-k/GeoMorphTB")
+```
+
+# GeoMorphTB usage
+The usage of GeoMorphTB is straightforward, simply based on the need of a digital elevation model. 
+In the following example we gonna use the dem of the RQGIS-package.
+
+```{r get_dem, warning = FALSE, error = FALSE, message = FALSE}
+# attach packages
+library("raster")
+library("RQGIS")
+
+# set the RQGIS-environment
+RQGIS::set_env()
+
+# get digital elevation model 
+dem <- RQGIS::dem
+# dem is of class "RasterLayer"
+```
+
+Now, we can already start computing the implemented gradient and geomorphometric parameters.
+
+```{r, warning = FALSE, error = FALSE}
+# attach RQGIS
+library("GeoMorphTB")
+
+dis <- GeoMorphTB::dissection(elevation = dem)
+
+summary(raster::values(dis))
+```
+
+The result of the function is automatically loaded in to R.
+However, if you do not want the file loaded in R, but stored on the hard disk, you can specify the function call as in the following example.
+
+
+```{r, warning = FALSE, error = FALSE}
+# save file to current working directory
+GeoMorphTB::roughness(elevation = dem, load_output = FALSE, output = "roughness.tif")
+```
