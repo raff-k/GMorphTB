@@ -70,8 +70,8 @@ raster::plot(dis)
 ```
 
 
-The result of the function is automatically loaded in to R.
-However, if you do not want the file loaded in R, but stored on the hard disk, you can specify the function call as in the following example.
+The result of the function is automatically loaded into R.
+However, if you do not want the file loaded in R, but stored on the hard disk, you can specify the function call as in the following example:
 
 
 ```{r, warning = FALSE, error = FALSE}
