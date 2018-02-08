@@ -59,13 +59,15 @@ dem <- RQGIS::dem
 
 Now, we can already start computing the implemented gradient and geomorphometric parameters.
 
-```{r, warning = FALSE, error = FALSE}
+```{r, fig.width = 5, fig.height = 5, align = "center", warning = FALSE, error = FALSE}
 # attach RQGIS
 library("GeoMorphTB")
 
 dis <- GeoMorphTB::dissection(elevation = dem)
 
 summary(raster::values(dis))
+raster::plot(dis)
+```
 ```
 
 The result of the function is automatically loaded in to R.
@@ -73,6 +75,6 @@ However, if you do not want the file loaded in R, but stored on the hard disk, y
 
 
 ```{r, warning = FALSE, error = FALSE}
-# save file to current working directory
-GeoMorphTB::roughness(elevation = dem, load_output = FALSE, output = "roughness.tif")
+# as default, the file is saved to current working directory
+GeoMorphTB::roughness(elevation = dem, load_output = FALSE, output = file.path(tempdir(), "roughness.tif"))
 ```
