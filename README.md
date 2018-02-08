@@ -55,8 +55,10 @@ Now, we can already start computing the implemented gradient and geomorphometric
 # attach RQGIS
 library("GeoMorphTB")
 
+# computation of dissection
 dis <- GeoMorphTB::dissection(elevation = dem)
 
+# get summary and plot of result
 summary(raster::values(dis))
 ```
 
