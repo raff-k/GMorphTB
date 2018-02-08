@@ -4,21 +4,6 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
-knitr::opts_chunk$set(
-  fig.align = "center",
-  collapse = TRUE,
-  eval = FALSE,
-  comment = "#>",
-  cache = TRUE
-)
-```
-
-```{r, echo = FALSE, eval = TRUE}
-rvers = "3.2.0"
-```
-
-
 GeoMorphTB is an open-source approach for Evan's ArcGIS Geomorphometry & Gradient Metrics Toolbox (see also [http://evansmurphy.wixsite.com/evansspatial/arcgis-gradient-metrics-toolbox]). As open-source software solution GRASS GIS 7.x is used through RQGIS [https://github.com/jannes-m/RQGIS] functionalities.
 
 Currently, the following functions and algorithms are supported:
