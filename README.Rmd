@@ -59,7 +59,7 @@ dem <- RQGIS::dem
 
 Now, we can already start computing the implemented gradient and geomorphometric parameters.
 
-```{r, fig.width = 5, fig.height = 5, align = "center", warning = FALSE, error = FALSE}
+```{r, fig.width = 5, fig.height = 5, align = "center", warning = FALSE, error = FALSE, eval=TRUE}
 # attach RQGIS
 library("GeoMorphTB")
 
@@ -68,7 +68,7 @@ dis <- GeoMorphTB::dissection(elevation = dem)
 summary(raster::values(dis))
 raster::plot(dis)
 ```
-```
+
 
 The result of the function is automatically loaded in to R.
 However, if you do not want the file loaded in R, but stored on the hard disk, you can specify the function call as in the following example.
